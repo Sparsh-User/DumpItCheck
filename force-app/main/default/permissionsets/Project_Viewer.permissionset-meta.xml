@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Read only access</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Project Viewer</label>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Project__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Project_Task__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Project__c.Budget__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Project__c.Progress__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Project__c.Account__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <tabSettings>
+        <tab>Project__c</tab>
+        <visibility>Available</visibility>
+    </tabSettings>
+</PermissionSet>

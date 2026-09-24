@@ -1,0 +1,7 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global">
+    <aura:attribute name="project" type="Project__c"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <lightning:card title="Quick View">
+        <p class="slds-p-horizontal_small">{!v.project.Name} &amp; status: {!v.project.Status__c}</p>
+    </lightning:card>
+</aura:component>

@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title="Project Timeline" icon-name="standard:timeline">
+        <template lwc:if={hasProjects}>
+            <ul class="slds-m-around_medium">
+                <template for:each={projects} for:item="project">
+                    <li key={project.Id} class="timeline-item">
+                        <a href={project.url}>{project.Name}</a>
+                        <lightning-badge label={project.Status__c}></lightning-badge>
+                        <lightning-progress-bar value={project.Progress__c} size="small"></lightning-progress-bar>
+                    </li>
+                </template>
+            </ul>
+        </template>
+        <template lwc:else>
+            <p class="slds-p-around_medium">{label.noProjects}</p>
+        </template>
+    </lightning-card>
+</template>

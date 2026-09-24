@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account__c</fullName>
+    <label>Account</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Projects</relationshipLabel>
+    <relationshipName>Projects</relationshipName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <type>Lookup</type>
+    <lookupFilter>
+        <active>true</active>
+        <errorMessage>Account must have a tier.</errorMessage>
+        <filterItems>
+            <field>Account.Customer_Tier__c</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+</CustomField>

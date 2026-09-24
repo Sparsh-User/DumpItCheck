@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Budget_Warning</fullName>
+        <categories>Projects</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Budget Warning</shortDescription>
+        <value>Budget exceeded by more than 10% &amp; approval is required</value>
+    </labels>
+    <labels>
+        <fullName>No_Projects_Found</fullName>
+        <categories>Projects</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No Projects Found</shortDescription>
+        <value>No projects found for this account.</value>
+    </labels>
+    <labels>
+        <fullName>Welcome_Text</fullName>
+        <categories>Projects</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Welcome Text</shortDescription>
+        <value>Bienvenue – café 日本語 🚀</value>
+    </labels>
+</CustomLabels>

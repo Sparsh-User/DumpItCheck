@@ -1,0 +1,6 @@
+Hello {!Project__c.OwnerFullName},
+
+Project {!Project__c.Name} has been completed on {!TODAY()}.
+
+Regards,
+PMO Team

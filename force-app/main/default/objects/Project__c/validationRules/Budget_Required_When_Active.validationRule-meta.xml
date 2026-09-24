@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Budget_Required_When_Active</fullName>
+    <active>false</active>
+    <description>Disabled during data migration</description>
+    <errorConditionFormula>AND(Is_Active__c, ISBLANK(Budget__c), ISPICKVAL(Status__c, &quot;In Progress&quot;))</errorConditionFormula>
+    <errorMessage>Budget is required for active in-progress projects.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Active_Over_Budget</fullName>
+    <booleanFilter>(1 AND 2) OR 3</booleanFilter>
+    <columns>NAME</columns>
+    <columns>Budget__c</columns>
+    <columns>Total_Task_Hours__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>Is_Active__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>Budget__c</field>
+        <operation>greaterThan</operation>
+        <value>50000</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Blocked</value>
+    </filters>
+    <label>Active / Over Budget</label>
+    <sharedTo>
+        <group>Project_Managers</group>
+        <role>Project_Manager</role>
+    </sharedTo>
+</ListView>

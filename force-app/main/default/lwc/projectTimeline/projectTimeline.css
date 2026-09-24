@@ -1,0 +1,5 @@
+.timeline-item {
+    border-left: 3px solid var(--lwc-brandAccessible, #0176d3);
+    padding-left: 0.75rem;
+    margin-bottom: 0.5rem;
+}

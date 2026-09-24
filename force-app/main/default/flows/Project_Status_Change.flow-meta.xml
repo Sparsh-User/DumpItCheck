@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <decisions>
+        <name>Is_Completed</name>
+        <label>Is Completed</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Completed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Completed</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_Closeout_Task</targetReference>
+            </connector>
+            <label>Completed</label>
+        </rules>
+    </decisions>
+    <description>Creates a closeout task when a project completes. Respects bypass setting.</description>
+    <environments>Default</environments>
+    <interviewLabel>Project Status Change {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Project Status Change</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Create_Closeout_Task</name>
+        <label>Create Closeout Task</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>Hours__c</field>
+            <value>
+                <numberValue>2.0</numberValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <stringValue>Closeout review &amp; lessons learned</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Project__c</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Project_Task__c</object>
+    </recordCreates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Is_Completed</targetReference>
+        </connector>
+        <filterFormula>AND(ISCHANGED({!$Record.Status__c}), NOT({!$Setup.Bypass_Automations__c.Bypass_Flows__c}))</filterFormula>
+        <object>Project__c</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

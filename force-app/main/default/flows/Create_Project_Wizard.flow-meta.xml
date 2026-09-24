@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <assignments>
+        <name>Set_Project_Fields</name>
+        <label>Set Project Fields</label>
+        <locationX>176</locationX>
+        <locationY>350</locationY>
+        <assignmentItems>
+            <assignToReference>newProject.Reference_Code__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Reference_Code</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>newProject.Budget__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Budget</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>newProject.Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Not Started</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_Project</targetReference>
+        </connector>
+    </assignments>
+    <environments>Default</environments>
+    <interviewLabel>Create Project Wizard {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Create Project Wizard</label>
+    <processType>Flow</processType>
+    <recordCreates>
+        <name>Create_Project</name>
+        <label>Create Project</label>
+        <locationX>176</locationX>
+        <locationY>458</locationY>
+        <faultConnector>
+            <targetReference>Error_Screen</targetReference>
+        </faultConnector>
+        <inputReference>newProject</inputReference>
+    </recordCreates>
+    <screens>
+        <name>Project_Details</name>
+        <label>Project Details</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Set_Project_Fields</targetReference>
+        </connector>
+        <fields>
+            <name>Reference_Code</name>
+            <dataType>String</dataType>
+            <fieldText>Reference Code</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Budget</name>
+            <dataType>Currency</dataType>
+            <fieldText>Budget</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>false</isRequired>
+            <scale>2</scale>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Error_Screen</name>
+        <label>Error Screen</label>
+        <locationX>440</locationX>
+        <locationY>566</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>Error_Text</name>
+            <fieldText>&lt;p&gt;Could not create project: {!$Flow.FaultMessage}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Project_Details</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>newProject</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Project__c</objectType>
+    </variables>
+</Flow>

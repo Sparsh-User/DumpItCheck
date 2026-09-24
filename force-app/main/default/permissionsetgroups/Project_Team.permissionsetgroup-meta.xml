@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Standard project team access</description>
+    <label>Project Team</label>
+    <permissionSets>Project_Viewer</permissionSets>
+    <permissionSets>Project_Manager</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>

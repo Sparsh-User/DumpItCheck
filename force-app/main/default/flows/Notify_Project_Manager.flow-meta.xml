@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Update_Status_Via_Apex</name>
+        <label>Update Status Via Apex</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <actionName>ProjectStatusInvocable</actionName>
+        <actionType>apex</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>projectId</name>
+            <value>
+                <elementReference>projectId</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>status</name>
+            <value>
+                <elementReference>newStatus</elementReference>
+            </value>
+        </inputParameters>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <apiVersion>62.0</apiVersion>
+    <description>Work in progress - kept as Draft on purpose</description>
+    <interviewLabel>Notify Project Manager {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Notify Project Manager</label>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Update_Status_Via_Apex</targetReference>
+        </connector>
+    </start>
+    <status>Draft</status>
+    <variables>
+        <name>projectId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>newStatus</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

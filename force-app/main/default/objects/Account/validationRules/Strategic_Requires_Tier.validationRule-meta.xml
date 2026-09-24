@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Strategic_Requires_Tier</fullName>
+    <active>true</active>
+    <description>Strategic accounts must be Gold or Platinum</description>
+    <errorConditionFormula>AND(Is_Strategic__c, NOT(OR(ISPICKVAL(Customer_Tier__c,&quot;Gold&quot;), ISPICKVAL(Customer_Tier__c,&quot;Platinum&quot;))))</errorConditionFormula>
+    <errorDisplayField>Customer_Tier__c</errorDisplayField>
+    <errorMessage>Strategic accounts must be Gold or Platinum tier.</errorMessage>
+</ValidationRule>
